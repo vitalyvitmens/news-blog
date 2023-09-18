@@ -36,6 +36,7 @@ export const PostContent = styled(PostContentContainer)`
 	& img {
 		float: left;
 		margin: 0 20px 10px 0;
+		box-shadow: -5px 7px 10px #000;
 	}
 
 	& .post-text {
