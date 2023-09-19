@@ -33,16 +33,6 @@ export const Pagination = styled(PaginationContainer)`
 
 	& button {
 		margin: 0 5px;
-		border-radius: 7px;
-		box-shadow: -3px 5px 5px #333;
-
-		&:hover {
-			box-shadow: -3px 5px 5px #000;
-		}
-
-		&:active {
-			box-shadow: none;
-		}
 	}
 
 	& .current-page {

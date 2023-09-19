@@ -52,6 +52,15 @@ export const PostCard = styled(PostCardContainer)`
 	border: 1px solid #000;
 	box-shadow: -5px 7px 10px #333;
 
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:active {
+		opacity: 0.6;
+		box-shadow: none;
+	}
+
 	& img {
 		border-radius: 10px 10px 0 0;
 		display: block;

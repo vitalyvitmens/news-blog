@@ -17,17 +17,18 @@ export const Button = styled(ButtonContainer)`
 	width: ${({ width = '100%' }) => width};
 	height: 32px;
 	border: 1px solid #000;
-  border-radius: 7px;
-  box-shadow: -3px 5px 5px #333;
+	border-radius: 7px;
+	box-shadow: -3px 5px 5px #333;
 	background-color: bisque;
 
 	&:hover {
-    box-shadow: -3px 5px 5px #000;
+		opacity: 0.8;
 		cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 	}
 
 	&:active {
-    box-shadow: none;
+		opacity: 0.6;
+		box-shadow: none;
 		cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 	}
 `
