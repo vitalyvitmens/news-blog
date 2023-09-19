@@ -1,4 +1,4 @@
-import { generateDate } from '../utils'
+import { getCurrentDate } from '../utils'
 
 export const addPost = ({ imageUrl, title, content }) =>
 	fetch('http://localhost:3005/posts', {
@@ -8,7 +8,7 @@ export const addPost = ({ imageUrl, title, content }) =>
 		},
 		body: JSON.stringify({
 			image_url: imageUrl,
-			published_at: generateDate(),
+			published_at: getCurrentDate(),
 			title,
 			content,
 		}),

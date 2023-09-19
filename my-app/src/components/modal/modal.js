@@ -59,8 +59,8 @@ export const Modal = styled(ModalContainer)`
 		margin: 0 auto;
 		padding: 0 20px 20px;
     text-align: center;
-		background-color: #fff;
-		border: 3px solid #000;
+    background-color: antiquewhite;
+		border: 2px solid #000;
 		border-radius: 10px;
 		z-index: 30;
 	}

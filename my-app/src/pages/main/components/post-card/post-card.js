@@ -80,6 +80,7 @@ export const PostCard = styled(PostCardContainer)`
 		display: flex;
 		justify-content: space-between;
 		margin-top: 5px;
+    padding: 0 1px;
 	}
 
 	& .published-at {

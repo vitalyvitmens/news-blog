@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Icon } from '../../../../components'
+import newsGif from '../../../../gif/news.gif'
 import { styled } from 'styled-components'
 
 const LargeText = styled.div`
@@ -9,22 +10,23 @@ const LargeText = styled.div`
 	margin-top: 17px;
 `
 
-const SmallText = styled.div`
-	font-size: 18px;
-	font-weight: bold;
-`
-
 const LogoContainer = ({ className }) => (
 	<Link className={className} to="/">
-		<Icon id="fa-code" size="70px" margin="0 10px 0 0" />
+		<Icon id="fa-newspaper-o" size="70px" margin="0 10px 0 0" />
 		<div>
 			<LargeText>Блог</LargeText>
-			<SmallText>веб-разработчика</SmallText>
+			<img className="news-gif" src={newsGif} alt="news.gif" />
 		</div>
 	</Link>
 )
 
 export const Logo = styled(LogoContainer)`
 	display: flex;
-	margin-top: -21px;
+	margin-top: -20px;
+  width: 15%;
+
+	.news-gif {
+		width: 100%;
+		padding: 0 0 0 5px;
+	}
 `

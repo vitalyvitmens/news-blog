@@ -1,4 +1,4 @@
-import { generateDate } from '../utils'
+import { getCurrentDate } from '../utils'
 
 export const addComment = (userId, postId, content) =>
 	fetch('http://localhost:3005/comments', {
@@ -9,7 +9,7 @@ export const addComment = (userId, postId, content) =>
 		body: JSON.stringify({
 			author_id: userId,
 			post_id: postId,
-			published_at: generateDate(),
+			published_at: getCurrentDate(),
 			content,
 		}),
 	})
