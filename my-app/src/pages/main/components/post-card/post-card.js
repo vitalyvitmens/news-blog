@@ -54,6 +54,7 @@ export const PostCard = styled(PostCardContainer)`
 
 	&:hover {
 		opacity: 0.8;
+		transform: translate(0, -3px);
 	}
 
 	&:active {
@@ -80,7 +81,7 @@ export const PostCard = styled(PostCardContainer)`
 		display: flex;
 		justify-content: space-between;
 		margin-top: 5px;
-    padding: 0 1px;
+		padding: 0 1px;
 	}
 
 	& .published-at {

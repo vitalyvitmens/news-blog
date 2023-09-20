@@ -72,4 +72,8 @@ const ControlPanelContainer = ({ className }) => {
 	)
 }
 
-export const ControlPanel = styled(ControlPanelContainer)``
+export const ControlPanel = styled(ControlPanelContainer)`
+	& button {
+		padding: 0 30px;
+	}
+`

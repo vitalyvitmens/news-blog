@@ -4,10 +4,10 @@ import newsGif from '../../../../gif/news.gif'
 import { styled } from 'styled-components'
 
 const LargeText = styled.div`
+	color: #211f20;
 	font-size: 48px;
 	font-weight: 600;
 	line-height: 48px;
-	margin-top: 17px;
 `
 
 const LogoContainer = ({ className }) => (
@@ -22,8 +22,15 @@ const LogoContainer = ({ className }) => (
 
 export const Logo = styled(LogoContainer)`
 	display: flex;
-	margin-top: -20px;
-  width: 15%;
+	width: 20%;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:active {
+		opacity: 0.6;
+	}
 
 	.news-gif {
 		width: 100%;

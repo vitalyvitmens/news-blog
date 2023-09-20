@@ -9,7 +9,7 @@ const HeaderContainer = ({ className }) => (
 	<header className={className}>
 		<Logo />
 		<Discription>
-			Ежедневно крутые новости
+			Ежедневно интересные новости
 			<br />
 			Технологические прорывы
 			<br />
@@ -24,11 +24,15 @@ export const Header = styled(HeaderContainer)`
 	justify-content: space-between;
 	position: fixed;
 	top: 0;
+  text-align: center;
 	width: 1000px;
 	height: 120px;
-  font-size: 18px;
+	font-size: 21px;
+  letter-spacing: 0.015em;
+  color: #211F20;
+	font-family: Georgia, serif;
 	padding: 20px 40px;
 	background-color: bisque;
-	box-shadow: 0px -2px 17px #000;
+	box-shadow: 0 -2px 17px #000;
 	z-index: 10;
 `
