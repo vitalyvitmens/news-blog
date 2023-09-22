@@ -33,6 +33,6 @@ export const Header = styled(HeaderContainer)`
 	font-family: Georgia, serif;
 	padding: 20px 40px;
 	background-color: bisque;
-	box-shadow: 0 -2px 17px #000;
+	box-shadow: 0 7px 10px #333;
 	z-index: 10;
 `

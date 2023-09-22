@@ -16,7 +16,7 @@ const AppColumn = styled.div`
 	min-height: 100%;
 	margin: 0 auto;
 	background-color: antiquewhite;
-  box-shadow: -10px 0px 10px #1d1919;
+	box-shadow: -7px 0 10px #333;
 `
 
 const Page = styled.div`

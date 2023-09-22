@@ -54,7 +54,7 @@ export const PostCard = styled(PostCardContainer)`
 
 	&:hover {
 		opacity: 0.8;
-		transform: translate(0, -3px);
+		transform: translate(0, -2px);
 	}
 
 	&:active {
@@ -75,6 +75,11 @@ export const PostCard = styled(PostCardContainer)`
 
 	& h4 {
 		margin: 0;
+		color: #004d99;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	& .post-card-info {
@@ -89,7 +94,7 @@ export const PostCard = styled(PostCardContainer)`
 	}
 
 	& .comments-count {
-		display: flex;
+    display: flex;
 	}
 `
 

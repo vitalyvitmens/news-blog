@@ -52,5 +52,5 @@ export const Footer = styled(FooterContainer)`
 	padding: 20px 40px;
 	font-weight: bold;
 	background-color: bisque;
-	box-shadow: 0px 2px 17px #000;
+	box-shadow: 0 -7px 10px #333;
 `
