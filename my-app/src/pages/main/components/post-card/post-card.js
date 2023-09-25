@@ -54,7 +54,7 @@ export const PostCard = styled(PostCardContainer)`
 
 	&:hover {
 		opacity: 0.8;
-		transform: translate(0, -2px);
+		transform: translate(0, -3px);
 	}
 
 	&:active {
