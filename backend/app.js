@@ -18,10 +18,12 @@ const {
 	getPost,
 } = require('./controllers/post')
 const mapUser = require('./helpers/mapUser')
+const mapPost = require('./helpers/mapPost')
+const mapComment = require('./helpers/mapComment')
 const authenticated = require('./middlewares/authenticated')
 const hasRole = require('./middlewares/hasRole')
 const ROLES = require('./constants/roles')
-const mapPost = require('./helpers/mapPost')
+const { addComment, deleteComment } = require('./controllers/comment')
 
 const port = 3001
 const app = express()
@@ -70,10 +72,29 @@ app.get('/posts', async (req, res) => {
 app.get('/posts/:id', async (req, res) => {
 	const post = await getPost(req.params.id)
 
-	res.send({ data: post })
+	res.send({ data: mapPost(post) })
 })
 
 app.use(authenticated)
+
+app.post('/posts/:id/comments', async (req, res) => {
+	const newComment = await addComment(req.params.id, {
+		content: req.body.content,
+		author: req.user.id,
+	})
+
+	res.send({ data: mapComment(newComment) })
+})
+
+app.delete(
+	'/posts/:postId/comments/:commentId',
+	hasRole([ROLES.ADMIN, ROLES.MODERATOR]),
+	async (req, res) => {
+		await deleteComment(req.params.postId, req.params.commentId)
+
+		res.send({ error: null })
+	}
+)
 
 app.post('/posts', hasRole([ROLES.ADMIN]), async (req, res) => {
 	const newPost = await addPost({
