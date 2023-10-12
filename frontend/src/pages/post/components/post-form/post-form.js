@@ -28,7 +28,7 @@ const PostFormContainer = ({
 		const newContent = sanitizeContent(contentRef.current.innerHTML)
 
 		dispatch(
-			savePostAsync({
+			savePostAsync(id, {
 				imageUrl: imageUrlValue,
 				title: titleValue,
 				content: newContent,
