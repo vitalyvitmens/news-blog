@@ -6,7 +6,7 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { AuthFormError, Button, H2, Input } from '../../components'
 import { useResetForm } from '../../hooks'
-import { server } from '../../bff'
+import { request } from '../../utils/request'
 import { setUser } from '../../actions'
 import { selectUserRole } from '../../selectors'
 import styled from 'styled-components'
@@ -62,14 +62,14 @@ const AuthorizationContainer = ({ className }) => {
 	useResetForm(reset)
 
 	const onSubmit = ({ login, password }) => {
-		server.authorize(login, password).then(({ error, res }) => {
+		request('/login', 'POST', { login, password }).then(({ error, user }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`)
 				return
 			}
 
-			dispatch(setUser(res))
-			sessionStorage.setItem('userData', JSON.stringify(res))
+			dispatch(setUser(user))
+			sessionStorage.setItem('userData', JSON.stringify(user))
 		})
 	}
 
