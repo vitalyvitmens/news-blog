@@ -5,7 +5,7 @@ const Post = require('../models/Post')
 async function addComment(postId, comment) {
 	const newComment = await Comment.create(comment)
 
-	await Post.findByIdAndUpdate(postId, { $push: [{ comments: newComment }] })
+	await Post.findByIdAndUpdate(postId, { $push: { comments: newComment } })
 
 	await newComment.populate('author')
 
@@ -16,7 +16,7 @@ async function addComment(postId, comment) {
 async function deleteComment(postId, commentId) {
 	await Comment.deleteOne({ _id: commentId })
 
-	await Post.findByIdAndUpdate(postId, { $pull: [{ comments: commentId }] })
+	await Post.findByIdAndUpdate(postId, { $pull: { comments: commentId } })
 }
 
 module.exports = {
