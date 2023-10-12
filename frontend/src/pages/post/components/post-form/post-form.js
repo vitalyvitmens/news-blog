@@ -6,7 +6,7 @@ import { SpecialPanel } from '../special-panel/special-panel'
 import { useServerRequest } from '../../../../hooks'
 import { savePostAsync } from '../../../../actions'
 import { sanitizeContent } from './utils'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
 
 const PostFormContainer = ({

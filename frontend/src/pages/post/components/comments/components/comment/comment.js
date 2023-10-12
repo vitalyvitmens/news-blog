@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { Icon } from '../../../../../../components'
-import { useServerRequest } from '../../../../../../hooks'
 import {
 	CLOSE_MODAL,
 	openModal,
@@ -9,7 +8,7 @@ import {
 } from '../../../../../../actions'
 import { selectUserRole } from '../../../../../../selectors'
 import { ROLE } from '../../../../../../constants'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 
 const CommentContainer = ({
 	className,
@@ -20,7 +19,6 @@ const CommentContainer = ({
 	content,
 }) => {
 	const dispatch = useDispatch()
-	const requestServer = useServerRequest()
 	const userRole = useSelector(selectUserRole)
 
 	const onCommentRemove = (id) => {
@@ -28,7 +26,7 @@ const CommentContainer = ({
 			openModal({
 				text: 'Удалить комментарий?',
 				onConfirm: () => {
-					dispatch(removeCommentAsync(requestServer, postId, id))
+					dispatch(removeCommentAsync(postId, id))
 					dispatch(CLOSE_MODAL)
 				},
 				onCancel: () => dispatch(CLOSE_MODAL),
@@ -104,7 +102,7 @@ export const Comment = styled(CommentContainer)`
 
 Comment.propTypes = {
 	postId: PropTypes.string.isRequired,
-	id: PropTypes.number.isRequired,
+	id: PropTypes.string.isRequired,
 	author: PropTypes.string.isRequired,
 	publishedAt: PropTypes.string.isRequired,
 	content: PropTypes.string.isRequired,
