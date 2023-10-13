@@ -3,7 +3,7 @@ import { Pagination, PostCard, Search } from './components'
 import { PAGINATION_LIMIT } from '../../constants'
 import { debounce } from './utils'
 import { request } from '../../utils/request'
-import { getCurrentDate } from '../../bff/utils'
+import { getCurrentDate } from '../../utils'
 import styled from 'styled-components'
 
 const MainContainer = ({ className }) => {

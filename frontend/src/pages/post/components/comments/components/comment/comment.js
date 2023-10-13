@@ -8,7 +8,7 @@ import {
 } from '../../../../../../actions'
 import { selectUserRole } from '../../../../../../selectors'
 import { ROLE } from '../../../../../../constants'
-import { getCurrentDate } from '../../../../../../bff/utils'
+import { getCurrentDate } from '../../../../../../utils'
 import styled from 'styled-components'
 
 const CommentContainer = ({

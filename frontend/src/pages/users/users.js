@@ -6,7 +6,7 @@ import { selectUserRole } from '../../selectors'
 import { checkAccess } from '../../utils'
 import { ROLE } from '../../constants'
 import { request } from '../../utils/request'
-import { getCurrentDate } from '../../bff/utils'
+import { getCurrentDate } from '../../utils'
 import styled from 'styled-components'
 
 const UsersContainer = ({ className }) => {

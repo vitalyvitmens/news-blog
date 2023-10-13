@@ -3,7 +3,7 @@ import { SpecialPanel } from '../special-panel/special-panel'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
-import { getCurrentDate } from '../../../../bff/utils'
+import { getCurrentDate } from '../../../../utils'
 
 const PostContentContainer = ({
 	className,

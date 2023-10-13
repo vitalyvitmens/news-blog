@@ -6,7 +6,7 @@ import { Comment } from './components'
 import { selectUserRole } from '../../../../selectors'
 import { addCommentAsync } from '../../../../actions'
 import { PROP_TYPE, ROLE } from '../../../../constants'
-import { getCurrentDate } from '../../../../bff/utils'
+import { getCurrentDate } from '../../../../utils'
 import styled from 'styled-components'
 
 const CommentsContainer = ({ className, comments, postId }) => {

@@ -7,7 +7,7 @@ import { savePostAsync } from '../../../../actions'
 import { sanitizeContent } from './utils'
 import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
-import { getCurrentDate } from '../../../../bff/utils'
+import { getCurrentDate } from '../../../../utils'
 
 const PostFormContainer = ({
 	className,

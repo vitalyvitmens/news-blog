@@ -6,7 +6,7 @@ import { CLOSE_MODAL, openModal, removePostAsync } from '../../../../actions'
 import { checkAccess } from '../../../../utils'
 import { selectUserRole } from '../../../../selectors'
 import { ROLE } from '../../../../constants'
-import { getCurrentDate } from '../../../../bff/utils'
+import { getCurrentDate } from '../../../../utils'
 import styled from 'styled-components'
 
 const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
