@@ -9,8 +9,8 @@ import { useResetForm } from '../../hooks'
 import { request } from '../../utils/request'
 import { setUser } from '../../actions'
 import { selectUserRole } from '../../selectors'
-import styled from 'styled-components'
 import { ROLE } from '../../constants'
+import styled from 'styled-components'
 
 const regFormSchema = yup.object().shape({
 	login: yup
@@ -59,8 +59,8 @@ const RegistrationContainer = ({ className }) => {
 
 	useResetForm(reset)
 
-	const onSubmit = ({ login, password }) => {
-		request('/register', 'POST', { login, password }).then(
+	const onSubmit = ({ login, password, passcheck }) => {
+		request('/register', 'POST', { login, password, passcheck }).then(
 			({ error, user }) => {
 				if (error) {
 					setServerError(`Ошибка запроса: ${error}`)
@@ -78,8 +78,14 @@ const RegistrationContainer = ({ className }) => {
 		errors?.password?.message ||
 		errors?.passcheck?.message
 	const errorMessage = formError || serverError
+	console.log('errors?.login?.message:', errors?.login?.message)
+	console.log('errors?.password?.message:', errors?.password?.message)
+	console.log('errors?.passcheck?.message:', errors?.passcheck?.message)
+	console.log('formError:', formError)
+	console.log('serverError:', serverError)
+	console.log('roleId:', roleId)
 
-	if (roleId !== ROLE.GUEST) {
+	if (roleId === ROLE.USER) {
 		return <Navigate to="/" />
 	}
 

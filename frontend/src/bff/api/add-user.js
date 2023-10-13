@@ -11,6 +11,6 @@ export const addUser = (login, password) =>
 			login,
 			password,
 			registed_at: getCurrentDate(),
-			role_id: ROLE.READER,
+			role_id: ROLE.USER,
 		}),
 	}).then((createdUser) => createdUser.json())

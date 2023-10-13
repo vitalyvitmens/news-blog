@@ -9,8 +9,8 @@ import { useResetForm } from '../../hooks'
 import { request } from '../../utils/request'
 import { setUser } from '../../actions'
 import { selectUserRole } from '../../selectors'
-import styled from 'styled-components'
 import { ROLE } from '../../constants'
+import styled from 'styled-components'
 
 const authFormSchema = yup.object().shape({
 	login: yup

@@ -4,7 +4,7 @@ import { ROLE } from '../constants'
 import { getPostCommentsWithAuthor } from '../utils'
 
 export const addPostComment = async (hash, userId, postId, content) => {
-	const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR, ROLE.READER]
+	const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR, ROLE.USER]
 
 	const access = await sessions.access(hash, accessRoles)
 
