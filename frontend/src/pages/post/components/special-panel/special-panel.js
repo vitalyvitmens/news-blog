@@ -6,6 +6,7 @@ import { CLOSE_MODAL, openModal, removePostAsync } from '../../../../actions'
 import { checkAccess } from '../../../../utils'
 import { selectUserRole } from '../../../../selectors'
 import { ROLE } from '../../../../constants'
+import { getCurrentDate } from '../../../../bff/utils'
 import styled from 'styled-components'
 
 const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
@@ -39,7 +40,7 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 						size="18px"
 					/>
 				)}
-				{publishedAt}
+				{getCurrentDate(publishedAt)}
 			</div>
 			{isAdmin && (
 				<div className="buttons">

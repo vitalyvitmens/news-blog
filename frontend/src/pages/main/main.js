@@ -3,6 +3,7 @@ import { Pagination, PostCard, Search } from './components'
 import { PAGINATION_LIMIT } from '../../constants'
 import { debounce } from './utils'
 import { request } from '../../utils/request'
+import { getCurrentDate } from '../../bff/utils'
 import styled from 'styled-components'
 
 const MainContainer = ({ className }) => {
@@ -41,7 +42,7 @@ const MainContainer = ({ className }) => {
 								id={id}
 								title={title}
 								imageUrl={imageUrl}
-								publishedAt={publishedAt}
+								publishedAt={getCurrentDate(publishedAt)}
 								commentsCount={comments.length}
 							/>
 						))}

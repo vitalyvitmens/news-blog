@@ -7,6 +7,7 @@ import { savePostAsync } from '../../../../actions'
 import { sanitizeContent } from './utils'
 import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
+import { getCurrentDate } from '../../../../bff/utils'
 
 const PostFormContainer = ({
 	className,
@@ -53,7 +54,7 @@ const PostFormContainer = ({
 			/>
 			<SpecialPanel
 				id={id}
-				publishedAt={publishedAt}
+				publishedAt={getCurrentDate(publishedAt)}
 				margin="20px 0"
 				editButton={
 					<Icon

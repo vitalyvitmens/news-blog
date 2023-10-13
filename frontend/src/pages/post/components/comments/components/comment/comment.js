@@ -8,6 +8,7 @@ import {
 } from '../../../../../../actions'
 import { selectUserRole } from '../../../../../../selectors'
 import { ROLE } from '../../../../../../constants'
+import { getCurrentDate } from '../../../../../../bff/utils'
 import styled from 'styled-components'
 
 const CommentContainer = ({
@@ -58,7 +59,7 @@ const CommentContainer = ({
 							margin="0 10px 0 0"
 							onClick={() => {}}
 						/>
-						{publishedAt}
+						{getCurrentDate(publishedAt)}
 					</div>
 				</div>
 				<div className="comment-text">{content}</div>

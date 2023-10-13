@@ -3,6 +3,7 @@ import { SpecialPanel } from '../special-panel/special-panel'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
+import { getCurrentDate } from '../../../../bff/utils'
 
 const PostContentContainer = ({
 	className,
@@ -16,7 +17,7 @@ const PostContentContainer = ({
 			<H2>{title}</H2>
 			<SpecialPanel
 				id={id}
-				publishedAt={publishedAt}
+				publishedAt={getCurrentDate(publishedAt)}
 				margin="-20px 0 20px"
 				editButton={
 					<Icon
