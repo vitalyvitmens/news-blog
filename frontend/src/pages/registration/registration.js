@@ -59,8 +59,8 @@ const RegistrationContainer = ({ className }) => {
 
 	useResetForm(reset)
 
-	const onSubmit = ({ login, password, passcheck }) => {
-		request('/register', 'POST', { login, password, passcheck }).then(
+	const onSubmit = ({ login, password }) => {
+		request('/register', 'POST', { login, password }).then(
 			({ error, user }) => {
 				if (error) {
 					setServerError(`Ошибка запроса: ${error}`)
@@ -78,14 +78,9 @@ const RegistrationContainer = ({ className }) => {
 		errors?.password?.message ||
 		errors?.passcheck?.message
 	const errorMessage = formError || serverError
-	console.log('errors?.login?.message:', errors?.login?.message)
-	console.log('errors?.password?.message:', errors?.password?.message)
-	console.log('errors?.passcheck?.message:', errors?.passcheck?.message)
-	console.log('formError:', formError)
-	console.log('serverError:', serverError)
 	console.log('roleId:', roleId)
 
-	if (roleId === ROLE.USER) {
+	if (roleId !== ROLE.GUEST) {
 		return <Navigate to="/" />
 	}
 
