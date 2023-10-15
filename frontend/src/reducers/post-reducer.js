@@ -7,6 +7,7 @@ const initialPostState = {
 	content: '',
 	publishedAt: '',
 	comments: [],
+  views: 0,
 }
 
 export const postReducer = (state = initialPostState, action) => {

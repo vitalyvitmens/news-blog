@@ -73,7 +73,7 @@ app.get('/posts', async (req, res) => {
 
 app.get('/posts/:id', async (req, res) => {
 	const post = await getPost(req.params.id)
-
+	
 	res.send({ data: mapPost(post) })
 })
 

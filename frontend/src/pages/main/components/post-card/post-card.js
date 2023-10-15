@@ -28,14 +28,25 @@ const PostCardContainer = ({
 							/>
 							{getCurrentDate(publishedAt)}
 						</div>
-						<div className="comments-count">
-							<Icon
-								inactive={true}
-								id="fa-comment-o"
-								margin="0 7px 0 0"
-								size="18px"
-							/>
-							{commentsCount}
+						<div className="views-comments-block">
+							<div className="views-count">
+								<Icon
+									inactive={true}
+									id="fa fa-eye"
+									margin="0 7px 0 0"
+									size="18px"
+								/>
+								{commentsCount}
+							</div>
+							<div className="comments-count">
+								<Icon
+									inactive={true}
+									id="fa-comment-o"
+									margin="0 7px 0 15px"
+									size="18px"
+								/>
+								{commentsCount}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -91,6 +102,14 @@ export const PostCard = styled(PostCardContainer)`
 	}
 
 	& .published-at {
+		display: flex;
+	}
+
+	& .views-comments-block {
+		display: flex;
+	}
+
+	& .views-count {
 		display: flex;
 	}
 

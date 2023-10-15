@@ -34,11 +34,16 @@ function deletePost(id) {
 // get list with search and pagination
 async function getPosts(search = '', limit = 9, page = 1) {
 	const [posts, count] = await Promise.all([
-		Post.find({ title: { $regex: search, $options: 'i' } })
+		Post.find({
+			title: { $regex: search, $options: 'i' },
+		})
 			.limit(limit)
 			.skip((page - 1) * limit)
 			.sort({ createdAt: -1 }),
-		Post.countDocuments({ title: { $regex: search, $options: 'i' } }),
+			// .sort({ views: -1 }),
+		Post.countDocuments({
+			title: { $regex: search, $options: 'i' },
+		}),
 	])
 
 	return {
