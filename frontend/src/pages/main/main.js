@@ -5,6 +5,7 @@ import { debounce } from './utils'
 import { request } from '../../utils/request'
 import { getCurrentDate } from '../../utils'
 import styled from 'styled-components'
+import { Icon } from '../../components'
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([])
@@ -36,20 +37,31 @@ const MainContainer = ({ className }) => {
 				<Search searchPhrase={searchPhrase} onChange={onSearch} />
 				{posts.length > 0 ? (
 					<div className="post-list">
-						{posts.map(({ id, title, imageUrl, publishedAt, comments, views }) => (
-							<PostCard
-								key={id}
-								id={id}
-								title={title}
-								imageUrl={imageUrl}
-								publishedAt={getCurrentDate(publishedAt)}
-								commentsCount={comments.length}
-                viewsCount={views}
-							/>
-						))}
+						{posts.map(
+							({ id, title, imageUrl, publishedAt, comments, views }) => (
+								<PostCard
+									key={id}
+									id={id}
+									title={title}
+									imageUrl={imageUrl}
+									publishedAt={getCurrentDate(publishedAt)}
+									commentsCount={comments.length}
+									viewsCount={views}
+								/>
+							)
+						)}
 					</div>
 				) : (
-					<div className="no-posts-found">Статьи не найдены</div>
+					<div className="no-posts-found">
+						<Icon
+							inactive={true}
+							id="fa fa-refresh fa-spin fa-3x fa-fw"
+							margin="0 7px 0 0"
+							size="24px"
+							aria-hidden="true"
+						/>
+						<span>Loading...</span>
+					</div>
 				)}
 			</div>
 			{lastPage > 1 && posts.length > 0 && (
@@ -71,7 +83,7 @@ export const Main = styled(MainContainer)`
 	}
 
 	& .no-posts-found {
-		font-size: 18px;
+		font-size: 24px;
 		margin-top: 40px;
 		text-align: center;
 	}
