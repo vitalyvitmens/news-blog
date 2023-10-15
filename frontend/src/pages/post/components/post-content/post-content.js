@@ -7,7 +7,7 @@ import { getCurrentDate } from '../../../../utils'
 
 const PostContentContainer = ({
 	className,
-	post: { id, title, imageUrl, content, publishedAt },
+	post: { id, title, imageUrl, content, publishedAt, views },
 }) => {
 	const navigate = useNavigate()
 
@@ -18,6 +18,7 @@ const PostContentContainer = ({
 			<SpecialPanel
 				id={id}
 				publishedAt={getCurrentDate(publishedAt)}
+        viewsCount={views}
 				margin="-20px 0 20px"
 				editButton={
 					<Icon

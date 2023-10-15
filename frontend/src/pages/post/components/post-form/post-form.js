@@ -11,7 +11,7 @@ import { getCurrentDate } from '../../../../utils'
 
 const PostFormContainer = ({
 	className,
-	post: { id, imageUrl, title, content, publishedAt },
+	post: { id, imageUrl, title, content, publishedAt, views },
 }) => {
 	const [imageUrlValue, setImageUrlValue] = useState(imageUrl)
 	const [titleValue, setTitleValue] = useState(title)
@@ -55,6 +55,7 @@ const PostFormContainer = ({
 			<SpecialPanel
 				id={id}
 				publishedAt={getCurrentDate(publishedAt)}
+				viewsCount={views}
 				margin="20px 0"
 				editButton={
 					<Icon

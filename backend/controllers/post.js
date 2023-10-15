@@ -40,7 +40,7 @@ async function getPosts(search = '', limit = 9, page = 1) {
 			.limit(limit)
 			.skip((page - 1) * limit)
 			.sort({ createdAt: -1 }),
-			// .sort({ views: -1 }),
+		// .sort({ views: -1 }),
 		Post.countDocuments({
 			title: { $regex: search, $options: 'i' },
 		}),

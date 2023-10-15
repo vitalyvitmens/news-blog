@@ -9,7 +9,13 @@ import { ROLE } from '../../../../constants'
 import { getCurrentDate } from '../../../../utils'
 import styled from 'styled-components'
 
-const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
+const SpecialPanelContainer = ({
+	className,
+	id,
+	publishedAt,
+	editButton,
+	viewsCount,
+}) => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const userRole = useSelector(selectUserRole)
@@ -41,7 +47,17 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 					/>
 				)}
 				{getCurrentDate(publishedAt)}
+				<div className="views-count">
+					<Icon
+						inactive={true}
+						id="fa fa-eye"
+						margin="0 7px 0 15px"
+						size="18px"
+					/>
+					{viewsCount}
+				</div>
 			</div>
+
 			{isAdmin && (
 				<div className="buttons">
 					{editButton}
@@ -69,6 +85,10 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 		font-size: 18px;
 	}
 
+	& .views-count {
+		display: flex;
+	}
+
 	& .buttons {
 		display: flex;
 	}
@@ -83,4 +103,5 @@ SpecialPanel.propTypes = {
 	id: PropTypes.string.isRequired,
 	publishedAt: PropTypes.string.isRequired,
 	editButton: PropTypes.node.isRequired,
+	viewsCount: PropTypes.number.isRequired,
 }
