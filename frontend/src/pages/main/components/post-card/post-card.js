@@ -11,6 +11,7 @@ const PostCardContainer = ({
 	imageUrl,
 	publishedAt,
 	commentsCount,
+	viewsCount,
 }) => {
 	return (
 		<div className={className}>
@@ -36,7 +37,7 @@ const PostCardContainer = ({
 									margin="0 7px 0 0"
 									size="18px"
 								/>
-								{commentsCount}
+								{viewsCount}
 							</div>
 							<div className="comments-count">
 								<Icon
@@ -124,4 +125,5 @@ PostCard.propTypes = {
 	imageUrl: PropTypes.string.isRequired,
 	publishedAt: PropTypes.string.isRequired,
 	commentsCount: PropTypes.number.isRequired,
+	viewsCount: PropTypes.number.isRequired,
 }

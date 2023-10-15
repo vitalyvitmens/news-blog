@@ -36,7 +36,7 @@ const MainContainer = ({ className }) => {
 				<Search searchPhrase={searchPhrase} onChange={onSearch} />
 				{posts.length > 0 ? (
 					<div className="post-list">
-						{posts.map(({ id, title, imageUrl, publishedAt, comments }) => (
+						{posts.map(({ id, title, imageUrl, publishedAt, comments, views }) => (
 							<PostCard
 								key={id}
 								id={id}
@@ -44,6 +44,7 @@ const MainContainer = ({ className }) => {
 								imageUrl={imageUrl}
 								publishedAt={getCurrentDate(publishedAt)}
 								commentsCount={comments.length}
+                viewsCount={views}
 							/>
 						))}
 					</div>
