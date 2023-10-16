@@ -152,7 +152,7 @@ app.delete('/users/:id', hasRole([ROLES.ADMIN]), async (req, res) => {
 	res.send({ error: null })
 })
 
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING).then(() => {
+mongoose.connect(process.env.DB_CONNECTION_STRING).then(() => {
 	app.listen(port, () => {
 		console.log(`http://localhost:${port}/`)
 		console.log(`Server has been started on port ${port}...`)

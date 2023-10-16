@@ -2,10 +2,9 @@ import { useMemo, useEffect, useState } from 'react'
 import { Pagination, PostCard, Search } from './components'
 import { PAGINATION_LIMIT } from '../../constants'
 import { debounce } from './utils'
-import { request } from '../../utils/request'
-import { getCurrentDate } from '../../utils'
-import styled from 'styled-components'
+import { getCurrentDate, request } from '../../utils'
 import { Icon } from '../../components'
+import styled from 'styled-components'
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([])

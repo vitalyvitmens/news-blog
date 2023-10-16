@@ -57,6 +57,7 @@ const AuthorizationContainer = ({ className }) => {
 	const [serverError, setServerError] = useState(null)
 
 	const dispatch = useDispatch()
+  
 	const roleId = useSelector(selectUserRole)
 
 	useResetForm(reset)

@@ -1,6 +1,6 @@
 import { ACTION_TYPE } from '../actions'
 
-const initialApptState = {
+const initialAppState = {
 	wasLogout: false,
 	modal: {
 		isOpen: false,
@@ -10,7 +10,7 @@ const initialApptState = {
 	},
 }
 
-export const appReducer = (state = initialApptState, action) => {
+export const appReducer = (state = initialAppState, action) => {
 	switch (action.type) {
 		case ACTION_TYPE.LOGOUT:
 			return {
@@ -27,7 +27,7 @@ export const appReducer = (state = initialApptState, action) => {
 				},
 			}
 		case ACTION_TYPE.CLOSE_MODAL:
-			return initialApptState
+			return initialAppState
 		default:
 			return state
 	}
