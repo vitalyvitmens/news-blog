@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 const express = require('express')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
@@ -11,19 +12,19 @@ const {
 	deleteUser,
 } = require('./controllers/user')
 const {
+	getPost,
+	getPosts,
 	addPost,
 	editPost,
 	deletePost,
-	getPosts,
-	getPost,
 } = require('./controllers/post')
 const mapUser = require('./helpers/mapUser')
-const mapPost = require('./helpers/mapPost')
-const mapComment = require('./helpers/mapComment')
 const authenticated = require('./middlewares/authenticated')
 const hasRole = require('./middlewares/hasRole')
 const ROLES = require('./constants/roles')
+const mapPost = require('./helpers/mapPost')
 const { addComment, deleteComment } = require('./controllers/comment')
+const mapComment = require('./helpers/mapComment')
 
 const port = 3001
 const app = express()
@@ -75,7 +76,6 @@ app.get('/posts/:id', async (req, res) => {
 	const post = await getPost(req.params.id, {
 		$inc: { views: 1 },
 	})
-
 	res.send({ data: mapPost(post) })
 })
 
@@ -132,7 +132,7 @@ app.get('/users', hasRole([ROLES.ADMIN]), async (req, res) => {
 	res.send({ data: users.map(mapUser) })
 })
 
-app.get('/users/roles', hasRole([ROLES.ADMIN]), (req, res) => {
+app.get('/users/roles', hasRole([ROLES.ADMIN]), async (req, res) => {
 	const roles = getRoles()
 
 	res.send({ data: roles })
