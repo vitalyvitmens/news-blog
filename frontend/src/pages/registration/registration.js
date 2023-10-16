@@ -79,7 +79,6 @@ const RegistrationContainer = ({ className }) => {
 		errors?.password?.message ||
 		errors?.passcheck?.message
 	const errorMessage = formError || serverError
-	console.log('roleId:', roleId)
 
 	if (roleId !== ROLE.GUEST) {
 		return <Navigate to="/" />

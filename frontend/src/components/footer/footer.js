@@ -22,7 +22,13 @@ const FooterContainer = ({ className }) => {
 		<div className={className}>
 			<div>
 				<div>Новостной Блог</div>
-				<div>otm_@tut.by</div>
+				<div>
+					©{' '}
+					{new Date().toLocaleString('ru', {
+						year: 'numeric',
+					})}{' '}
+					vitalyvitmens. All rights reserved.
+				</div>
 			</div>
 			<div>
 				<div>
