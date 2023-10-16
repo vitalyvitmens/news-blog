@@ -2,7 +2,7 @@ import { useMemo, useEffect, useState } from 'react'
 import { Pagination, PostCard, Search } from './components'
 import { PAGINATION_LIMIT } from '../../constants'
 import { debounce } from './utils'
-import { getCurrentDate, request } from '../../utils'
+import { request } from '../../utils'
 import { Icon } from '../../components'
 import styled from 'styled-components'
 
@@ -43,9 +43,9 @@ const MainContainer = ({ className }) => {
 									id={id}
 									title={title}
 									imageUrl={imageUrl}
-									publishedAt={getCurrentDate(publishedAt)}
+									publishedAt={publishedAt}
 									commentsCount={comments.length}
-									viewsCount={views}
+									views={views}
 								/>
 							)
 						)}

@@ -5,9 +5,9 @@ import { Icon, Input } from '../../../../components'
 import { SpecialPanel } from '../special-panel/special-panel'
 import { savePostAsync } from '../../../../actions'
 import { sanitizeContent } from './utils'
-import styled from 'styled-components'
+import Moment from 'react-moment'
 import { PROP_TYPE } from '../../../../constants'
-import { getCurrentDate } from '../../../../utils'
+import styled from 'styled-components'
 
 const PostFormContainer = ({
 	className,
@@ -54,8 +54,8 @@ const PostFormContainer = ({
 			/>
 			<SpecialPanel
 				id={id}
-				publishedAt={getCurrentDate(publishedAt)}
-				viewsCount={views}
+				publishedAt={<Moment date={publishedAt} format="DD-MM-YYYYг HH:mm" />}
+				views={views}
 				margin="20px 0"
 				editButton={
 					<Icon

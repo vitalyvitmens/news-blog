@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Icon } from '../../../../components'
-import { getCurrentDate } from '../../../../utils'
+import Moment from 'react-moment'
 import styled from 'styled-components'
 
 const PostCardContainer = ({
@@ -11,7 +11,7 @@ const PostCardContainer = ({
 	imageUrl,
 	publishedAt,
 	commentsCount,
-	viewsCount,
+	views,
 }) => {
 	return (
 		<div className={className}>
@@ -27,7 +27,7 @@ const PostCardContainer = ({
 								margin="0 7px 0 0"
 								size="18px"
 							/>
-							{getCurrentDate(publishedAt)}
+							<Moment date={publishedAt} format="DD-MM-YYYYг HH:mm" />
 						</div>
 						<div className="views-comments-block">
 							<div className="views-count">
@@ -37,7 +37,7 @@ const PostCardContainer = ({
 									margin="0 7px 0 0"
 									size="18px"
 								/>
-								{viewsCount}
+								{views}
 							</div>
 							<div className="comments-count">
 								<Icon
@@ -125,5 +125,5 @@ PostCard.propTypes = {
 	imageUrl: PropTypes.string.isRequired,
 	publishedAt: PropTypes.string.isRequired,
 	commentsCount: PropTypes.number.isRequired,
-	viewsCount: PropTypes.number.isRequired,
+	views: PropTypes.number.isRequired,
 }

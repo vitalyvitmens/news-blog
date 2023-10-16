@@ -6,7 +6,6 @@ import { CLOSE_MODAL, openModal, removePostAsync } from '../../../../actions'
 import { checkAccess } from '../../../../utils'
 import { selectUserRole } from '../../../../selectors'
 import { ROLE } from '../../../../constants'
-import { getCurrentDate } from '../../../../utils'
 import styled from 'styled-components'
 
 const SpecialPanelContainer = ({
@@ -14,7 +13,7 @@ const SpecialPanelContainer = ({
 	id,
 	publishedAt,
 	editButton,
-	viewsCount,
+	views,
 }) => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
@@ -46,7 +45,7 @@ const SpecialPanelContainer = ({
 						size="18px"
 					/>
 				)}
-				{getCurrentDate(publishedAt)}
+				{publishedAt}
 				<div className="views-count">
 					<Icon
 						inactive={true}
@@ -54,7 +53,7 @@ const SpecialPanelContainer = ({
 						margin="0 7px 0 15px"
 						size="18px"
 					/>
-					{viewsCount}
+					{views}
 				</div>
 			</div>
 
@@ -103,5 +102,5 @@ SpecialPanel.propTypes = {
 	id: PropTypes.string.isRequired,
 	publishedAt: PropTypes.string.isRequired,
 	editButton: PropTypes.node.isRequired,
-	viewsCount: PropTypes.number.isRequired,
+	views: PropTypes.number.isRequired,
 }

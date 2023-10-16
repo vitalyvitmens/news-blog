@@ -8,7 +8,7 @@ import {
 } from '../../../../../../actions'
 import { selectUserRole } from '../../../../../../selectors'
 import { ROLE } from '../../../../../../constants'
-import { getCurrentDate } from '../../../../../../utils'
+import Moment from 'react-moment'
 import styled from 'styled-components'
 
 const CommentContainer = ({
@@ -59,7 +59,7 @@ const CommentContainer = ({
 							margin="0 10px 0 0"
 							onClick={() => {}}
 						/>
-						{getCurrentDate(publishedAt)}
+              <Moment date={publishedAt} format="DD-MM-YYYYг HH:mm" />
 					</div>
 				</div>
 				<div className="comment-text">{content}</div>

@@ -6,7 +6,6 @@ import { selectUserRole } from '../../selectors'
 import { checkAccess } from '../../utils'
 import { ROLE } from '../../constants'
 import { request } from '../../utils/request'
-import { getCurrentDate } from '../../utils'
 import styled from 'styled-components'
 
 const UsersContainer = ({ className }) => {
@@ -58,7 +57,7 @@ const UsersContainer = ({ className }) => {
 							key={id}
 							id={id}
 							login={login}
-							registeredAt={getCurrentDate(registeredAt)}
+							registeredAt={registeredAt}
 							roleId={roleId}
 							roles={roles.filter(({ id: roleId }) => roleId !== ROLE.GUEST)}
 							onUserRemove={() => onUserRemove(id)}

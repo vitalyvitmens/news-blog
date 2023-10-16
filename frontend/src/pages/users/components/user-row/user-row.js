@@ -2,9 +2,10 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Icon } from '../../../../components'
 import { TableRow } from '../table-row/table-row'
-import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
 import { request } from '../../../../utils/request'
+import Moment from 'react-moment'
+import styled from 'styled-components'
 
 const UserRowContainer = ({
 	className,
@@ -34,7 +35,9 @@ const UserRowContainer = ({
 		<div className={className}>
 			<TableRow border={true}>
 				<div className="login-column">{login}</div>
-				<div className="registered-at-column">{registeredAt}</div>
+				<div className="registered-at-column">
+					{<Moment date={registeredAt} format="DD-MM-YYYYг HH:mm" />}
+				</div>
 				<div className="role-column">
 					<select value={selectedRoleId} onChange={onRoleChange}>
 						{roles.map(({ id: roleId, name: roleName }) => (
