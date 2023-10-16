@@ -6,11 +6,11 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { AuthFormError, Button, H2, Input } from '../../components'
 import { useResetForm } from '../../hooks'
-import { request } from '../../utils/request'
 import { setUser } from '../../actions'
 import { selectUserRole } from '../../selectors'
-import { ROLE } from '../../constants'
 import styled from 'styled-components'
+import { ROLE } from '../../constants'
+import { request } from '../../utils/request'
 
 const authFormSchema = yup.object().shape({
 	login: yup
@@ -57,7 +57,7 @@ const AuthorizationContainer = ({ className }) => {
 	const [serverError, setServerError] = useState(null)
 
 	const dispatch = useDispatch()
-  
+
 	const roleId = useSelector(selectUserRole)
 
 	useResetForm(reset)
