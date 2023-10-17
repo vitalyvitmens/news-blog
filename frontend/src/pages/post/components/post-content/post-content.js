@@ -1,12 +1,13 @@
 import { H2, Icon } from '../../../../components'
 import { SpecialPanel } from '../special-panel/special-panel'
 import { useNavigate } from 'react-router-dom'
-import { styled } from 'styled-components'
+import Moment from 'react-moment'
 import { PROP_TYPE } from '../../../../constants'
+import styled from 'styled-components'
 
 const PostContentContainer = ({
 	className,
-	post: { id, title, imageUrl, content, publishedAt },
+	post: { id, title, imageUrl, content, publishedAt, views },
 }) => {
 	const navigate = useNavigate()
 
@@ -16,7 +17,8 @@ const PostContentContainer = ({
 			<H2>{title}</H2>
 			<SpecialPanel
 				id={id}
-				publishedAt={publishedAt}
+				publishedAt={<Moment date={publishedAt} format="DD-MM-YYYYг HH:mm" />}
+				views={views}
 				margin="-20px 0 20px"
 				editButton={
 					<Icon

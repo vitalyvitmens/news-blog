@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 
 const FooterContainer = ({ className }) => {
 	const [city, setCity] = useState('')
@@ -22,7 +22,13 @@ const FooterContainer = ({ className }) => {
 		<div className={className}>
 			<div>
 				<div>Новостной Блог</div>
-				<div>otm_@tut.by</div>
+				<div>
+					©{' '}
+					{new Date().toLocaleString('ru', {
+						year: 'numeric',
+					})}{' '}
+					vitalyvitmens. All rights reserved.
+				</div>
 			</div>
 			<div>
 				<div>

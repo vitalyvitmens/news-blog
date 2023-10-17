@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Icon } from '../../../../components'
+import Moment from 'react-moment'
 import styled from 'styled-components'
 
 const PostCardContainer = ({
@@ -10,6 +11,7 @@ const PostCardContainer = ({
 	imageUrl,
 	publishedAt,
 	commentsCount,
+	views,
 }) => {
 	return (
 		<div className={className}>
@@ -25,16 +27,27 @@ const PostCardContainer = ({
 								margin="0 7px 0 0"
 								size="18px"
 							/>
-							{publishedAt}
+							<Moment date={publishedAt} format="DD-MM-YYYYг HH:mm" />
 						</div>
-						<div className="comments-count">
-							<Icon
-								inactive={true}
-								id="fa-comment-o"
-								margin="0 7px 0 0"
-								size="18px"
-							/>
-							{commentsCount}
+						<div className="views-comments-block">
+							<div className="views-count">
+								<Icon
+									inactive={true}
+									id="fa fa-eye"
+									margin="0 7px 0 0"
+									size="18px"
+								/>
+								{views}
+							</div>
+							<div className="comments-count">
+								<Icon
+									inactive={true}
+									id="fa-comment-o"
+									margin="0 7px 0 15px"
+									size="18px"
+								/>
+								{commentsCount}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -93,8 +106,16 @@ export const PostCard = styled(PostCardContainer)`
 		display: flex;
 	}
 
+	& .views-comments-block {
+		display: flex;
+	}
+
+	& .views-count {
+		display: flex;
+	}
+
 	& .comments-count {
-    display: flex;
+		display: flex;
 	}
 `
 
@@ -104,4 +125,5 @@ PostCard.propTypes = {
 	imageUrl: PropTypes.string.isRequired,
 	publishedAt: PropTypes.string.isRequired,
 	commentsCount: PropTypes.number.isRequired,
+	views: PropTypes.number.isRequired,
 }

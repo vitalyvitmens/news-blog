@@ -3,15 +3,15 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Icon, Input } from '../../../../components'
 import { SpecialPanel } from '../special-panel/special-panel'
-import { useServerRequest } from '../../../../hooks'
 import { savePostAsync } from '../../../../actions'
 import { sanitizeContent } from './utils'
-import { styled } from 'styled-components'
+import Moment from 'react-moment'
 import { PROP_TYPE } from '../../../../constants'
+import styled from 'styled-components'
 
 const PostFormContainer = ({
 	className,
-	post: { id, imageUrl, title, content, publishedAt },
+	post: { id, imageUrl, title, content, publishedAt, views },
 }) => {
 	const [imageUrlValue, setImageUrlValue] = useState(imageUrl)
 	const [titleValue, setTitleValue] = useState(title)
@@ -24,14 +24,12 @@ const PostFormContainer = ({
 
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const requestServer = useServerRequest()
 
 	const onSave = () => {
 		const newContent = sanitizeContent(contentRef.current.innerHTML)
 
 		dispatch(
-			savePostAsync(requestServer, {
-				id,
+			savePostAsync(id, {
 				imageUrl: imageUrlValue,
 				title: titleValue,
 				content: newContent,
@@ -56,7 +54,8 @@ const PostFormContainer = ({
 			/>
 			<SpecialPanel
 				id={id}
-				publishedAt={publishedAt}
+				publishedAt={<Moment date={publishedAt} format="DD-MM-YYYYг HH:mm" />}
+				views={views}
 				margin="20px 0"
 				editButton={
 					<Icon

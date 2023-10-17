@@ -2,9 +2,10 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Icon } from '../../../../components'
 import { TableRow } from '../table-row/table-row'
-import { useServerRequest } from '../../../../hooks'
-import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
+import { request } from '../../../../utils/request'
+import Moment from 'react-moment'
+import styled from 'styled-components'
 
 const UserRowContainer = ({
 	className,
@@ -17,14 +18,13 @@ const UserRowContainer = ({
 }) => {
 	const [initialRoleId, setInitialRoleId] = useState(userRoleId)
 	const [selectedRoleId, setSelectedRoleId] = useState(userRoleId)
-	const requesrServer = useServerRequest()
 
 	const onRoleChange = ({ target }) => {
 		setSelectedRoleId(Number(target.value))
 	}
 
 	const onRoleSave = (userId, newUserRoleId) => {
-		requesrServer('updateUserRole', userId, newUserRoleId).then(() => {
+		request(`/users/${userId}`, 'PATCH', { roleId: newUserRoleId }).then(() => {
 			setInitialRoleId(newUserRoleId)
 		})
 	}
@@ -35,7 +35,9 @@ const UserRowContainer = ({
 		<div className={className}>
 			<TableRow border={true}>
 				<div className="login-column">{login}</div>
-				<div className="registered-at-column">{registeredAt}</div>
+				<div className="registered-at-column">
+					{<Moment date={registeredAt} format="DD-MM-YYYYг HH:mm" />}
+				</div>
 				<div className="role-column">
 					<select value={selectedRoleId} onChange={onRoleChange}>
 						{roles.map(({ id: roleId, name: roleName }) => (

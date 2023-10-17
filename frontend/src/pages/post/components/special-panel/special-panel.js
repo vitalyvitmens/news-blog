@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useServerRequest } from '../../../../hooks'
 import { Icon } from '../../../../components'
 import { CLOSE_MODAL, openModal, removePostAsync } from '../../../../actions'
 import { checkAccess } from '../../../../utils'
 import { selectUserRole } from '../../../../selectors'
 import { ROLE } from '../../../../constants'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 
-const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
+const SpecialPanelContainer = ({
+	className,
+	id,
+	publishedAt,
+	editButton,
+	views,
+}) => {
 	const dispatch = useDispatch()
-	const requestServer = useServerRequest()
 	const navigate = useNavigate()
 	const userRole = useSelector(selectUserRole)
 
@@ -20,7 +24,7 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 			openModal({
 				text: 'Удалить статью?',
 				onConfirm: () => {
-					dispatch(removePostAsync(requestServer, id)).then(() => navigate('/'))
+					dispatch(removePostAsync(id)).then(() => navigate('/'))
 					dispatch(CLOSE_MODAL)
 				},
 				onCancel: () => dispatch(CLOSE_MODAL),
@@ -42,7 +46,17 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 					/>
 				)}
 				{publishedAt}
+				<div className="views-count">
+					<Icon
+						inactive={true}
+						id="fa fa-eye"
+						margin="0 7px 0 15px"
+						size="18px"
+					/>
+					{views}
+				</div>
 			</div>
+
 			{isAdmin && (
 				<div className="buttons">
 					{editButton}
@@ -70,6 +84,10 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 		font-size: 18px;
 	}
 
+	& .views-count {
+		display: flex;
+	}
+
 	& .buttons {
 		display: flex;
 	}
@@ -82,6 +100,7 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 
 SpecialPanel.propTypes = {
 	id: PropTypes.string.isRequired,
-	publishedAt: PropTypes.string.isRequired,
+	publishedAt: PropTypes.object.isRequired,
 	editButton: PropTypes.node.isRequired,
+	views: PropTypes.number.isRequired,
 }

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Icon } from '../../../../components'
 import newsGif from '../../../../gif/news.gif'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 
 const LargeText = styled.div`
 	color: #211f20;

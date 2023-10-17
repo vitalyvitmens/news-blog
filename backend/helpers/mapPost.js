@@ -10,6 +10,7 @@ module.exports = function (post) {
 		comments: post.comments.map((comment) =>
 			mongoose.isObjectIdOrHexString(comment) ? comment : mapComment(comment)
 		),
+		views: post.views,
 		publishedAt: post.createdAt,
 	}
 }

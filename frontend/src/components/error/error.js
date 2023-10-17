@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { H2 } from '../h2/h2'
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 import { PROP_TYPE } from '../../constants'
 
 const Div = styled.div`
