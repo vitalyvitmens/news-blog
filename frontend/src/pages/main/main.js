@@ -42,7 +42,11 @@ const MainContainer = ({ className }) => {
 									key={id}
 									id={id}
 									title={title}
-									imageUrl={imageUrl}
+									imageUrl={
+										imageUrl
+											? imageUrl
+											: 'https://github.com/vitalyvitmens/news-blog/blob/main/frontend/src/img/001.jpg?raw=true'
+									}
 									publishedAt={publishedAt}
 									commentsCount={comments.length}
 									views={views}
