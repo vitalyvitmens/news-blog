@@ -91,6 +91,7 @@ export const PostForm = styled(PostFormContainer)`
 		border: 1px solid #000;
 		font-size: 18px;
 		white-space: pre-line;
+		padding: 10px;
 	}
 `
 
