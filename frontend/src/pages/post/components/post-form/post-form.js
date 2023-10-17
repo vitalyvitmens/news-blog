@@ -30,9 +30,11 @@ const PostFormContainer = ({
 
 		dispatch(
 			savePostAsync(id, {
-				imageUrl: imageUrlValue,
-				title: titleValue,
-				content: newContent,
+				imageUrl: imageUrlValue
+					? imageUrlValue
+					: 'https://github.com/vitalyvitmens/news-blog/blob/main/frontend/src/img/001.jpg?raw=true',
+				title: titleValue ? titleValue : 'Заполните название статьи!',
+				content: newContent ? newContent : 'Заполните контекст статьи!',
 			})
 		).then(({ id }) => navigate(`/post/${id}`))
 	}
