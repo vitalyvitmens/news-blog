@@ -26,7 +26,7 @@ const mapPost = require('./helpers/mapPost')
 const { addComment, deleteComment } = require('./controllers/comment')
 const mapComment = require('./helpers/mapComment')
 
-const port = 3001
+const PORT = process.env.PORT || 3001
 const app = express()
 
 app.use(express.static('../frontend/build'))
@@ -152,8 +152,8 @@ app.delete('/users/:id', hasRole([ROLES.ADMIN]), async (req, res) => {
 })
 
 mongoose.connect(process.env.DB_CONNECTION_STRING).then(() => {
-	app.listen(port, () => {
-		console.log(`http://localhost:${port}/`)
-		console.log(`Server has been started on port ${port}...`)
+	app.listen(PORT, () => {
+		console.log(`http://localhost:${PORT}/`)
+		console.log(`Server has been started on port ${PORT}...`)
 	})
 })

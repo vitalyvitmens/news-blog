@@ -56,7 +56,7 @@ async function getPost(id) {
 	})
 
 	post.views = post.views + 1
-	post.save()
+	await post.save()
 	return post
 }
 
